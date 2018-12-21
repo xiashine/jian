@@ -1,0 +1,27 @@
+@import '../../style/iconfont.wxss';
+.page_article_from{
+  margin-bottom: 10px;
+}
+.page__article_right{
+  float:right;
+  width: 30px;
+}
+.sharegroup{
+  width: 16px;
+  height: 16px;
+  padding-top:5px;
+  padding-right:15px;
+}
+.share {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    background: none;
+}
+
+.share::after{
+     border: none; 
+}

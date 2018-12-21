@@ -1,0 +1,36 @@
+<import src="../../utils/wxParse/wxParse.wxml"/>
+
+<view class="page"> 
+  <view class="page__hd">
+
+  <view class="weui-loadmore" wx:if="{{loading}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+
+    <view class="weui-article">
+      <view class="weui-article__h1">{{ article.title }}</view>
+      <view class="page__desc page_article_from">家住大兴 <text>{{ article.date }}</text></view>
+          <view class="weui-article__section">
+                    <view class="weui-article__p">
+        <view class="article__content wxParse">
+            <template is="wxParse" data="{{wxParseData}}"/>
+        </view>
+                    </view>
+                    <view class="weui-article__p">
+                    </view>
+                </view>
+                 <view class="page__desc page_article_from"><text>阅读数 {{ article.praise }}</text>
+<view class='sharegroup  page__article_right'>
+<button class='share' id="shareBtn" open-type="share">
+<i class="iconfont icon-fenxiang icon-fenxiang-share"></i>
+</button> </view>       
+              <i class="iconfont icon-shoucang  page__article_right" bindtap="shoucangClick"></i> <i class="iconfont icon-dianzan  page__article_right" bindtap="dianzanClick"></i><text class='page__article_right'>赞 {{ article.comment }}</text></view>
+    </view>
+  </view>
+    <view class="page__bd"> 
+        <view class="weui-footer">
+            <view class="weui-footer__text">Copyright © 2008-2018 jian.com</view>
+        </view>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/list",
+    "pages/detail/detail",
+     "pages/center/center"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "家住吉安",
+    "navigationBarTextStyle": "black"
+  },
+      "tabBar": {
+        "color": "#9BABBA",
+        "selectedColor": "#495056",
+        "borderStyle": "white",
+        "backgroundColor": "#ffffff",
+        "list": [
+          {
+            "pagePath": "pages/index/index",
+            "iconPath": "style/images/tar-home.png",
+            "selectedIconPath": "style/images/tar-home-on.png",
+            "text": "首页"
+          },
+          {
+            "pagePath": "pages/list/list",
+            "iconPath": "style/images/tar-li.png",
+            "selectedIconPath": "style/images/tar-li-on.png",
+            "text": "列表"
+          },
+          {
+            "pagePath": "pages/center/center",
+            "iconPath": "style/images/tar-person.png",
+            "selectedIconPath": "style/images/tar-person-on.png",
+            "text": "我的"
+          }
+        ]
+      }
+}

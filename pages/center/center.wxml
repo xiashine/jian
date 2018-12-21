@@ -1,0 +1,66 @@
+ <view class="page"> 
+   <view class="page__hd"> 
+<view wx:if="{{isLogin}}">
+  <view class='page__center'>
+  <view class='page__userinfo'>
+          <image class="avatar" src='{{userInfo.avatarUrl}}'></image>
+          <view class="nickname">{{userInfo.nickName}}</view>
+  </view>     
+    <view class="page__hd">
+        <view class="page__title">用户中心    </view>
+    </view>
+ <view class="kind-list">
+            <block wx:for="{{list}}" wx:key="id">
+                <view class="kind-list__item">
+                    <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+                        <view class="weui-flex__item">{{item.name}}</view>
+                        <image class="kind-list__img" src="/style/images/icon_nav_{{item.id}}.png"></image>
+                    </view>
+                    <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
+                        <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}} page__list">
+                            <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
+                              <!--  <navigator url="{{page}}/{{page}}" class="weui-cell weui-cell_access">
+                                    <view class="weui-cell__bd">{{page}}</view>
+                                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                                </navigator>
+-->
+<navigator class='page__list_single'  url="/pages/detail/detail?id={{page.id}}">
+      <view class='page__list_title'><text>{{page.title}}</text></view>
+      <view class='page__list_img'><image src='{{page.image}}' style="width: 80px; height: 80px;"></image></view>
+      
+      </navigator>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+
+  </view>
+</view>
+<view wx:else>
+<view wx:if="{{canIUse}}">
+    <view class='header'>
+        <image src='/style/images/weixinicon_login_profile_78x78_.png'></image>    
+    </view>
+ 
+    <view class='content'>
+        <view>申请获取以下权限</view>
+        <text>获得你的公开信息(昵称，头像等)</text>
+    </view>
+ 
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="login"  hidden='{{loading}}'>
+        授权登录
+    </button>
+</view>
+ 
+<view wx:else>请升级微信版本</view>
+
+</view>
+</view>
+</view>
+<!--
+<view class='sharegroup'>
+<button class='share' id="shareBtn" open-type="share">
+<i class="iconfont icon-fenxiang icon-fenxiang-share"></i>
+</button> </view>-->

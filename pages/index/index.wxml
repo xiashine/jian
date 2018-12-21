@@ -1,0 +1,82 @@
+ <view class="page"> 
+   <view class="page__hd"> 
+    <view class="page__title weui-flex"> 
+     <image class="title__logo_png" src="/style/images/logo.png"></image>
+     <view class="title__logo">
+      家住吉安
+     </view>
+     <view class="title__toutiao"  bindtap="moreClick">
+      更多
+     </view>
+    </view> 
+   </view>
+   <view class="page__bd">
+   <view class="weui-loadmore" wx:if="{{loading}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>
+
+    <swiper indicator-dots="false"  autoplay="true" interval="5000" duration="1000" class="page__swiper"  current="{{swiperCurrent}}" bindchange="swiperChange">
+        <swiper-item wx:for="{{swiperList}}" wx:key="id">
+            <view class="swiper__content" bindtap="swipclick"  id="{{item.id}}" >
+                <image src="{{item.image}}" class="swiper__item" mode="aspectFill" />
+                <view class="swiper__desc">
+                    <text class="swiper__text">{{ item.title }}</text>
+                    <text class="swiper__id"></text>
+                </view>
+            </view>
+        </swiper-item>
+        <!--
+        <swiper-item> 
+        <image src="/style/images/2.jpg" class="slide-image"></image>
+        </swiper-item> 
+        <swiper-item> 
+        <image src="/style/images/3.jpg" class="slide-image"></image>
+        </swiper-item>-->
+   </swiper>
+   </view> 
+   <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar page__nav">
+     <block wx:for="{{tabs}}" wx:key="*this"> 
+      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick"> 
+       <view class="weui-navbar__title">
+        {{item}}
+       </view> 
+      </view> 
+     </block> 
+
+    </view> 
+    <view class="weui-tab__panel"> 
+     <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+      <view class="weui-loadmore" wx:if="{{loading}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>     
+<view  wx:for="{{articles}}" wx:key="id">
+     <view wx:if="{{index == 4}}">
+      <navigator class='page__list'  url="/pages/detail/detail?id={{item.id}}">
+      <view class='page__list_title'><text>{{item.title}}</text></view>
+      <image src='{{item.image}}' class='page__list_bigimg'></image>
+      </navigator>
+      </view>
+      <view  wx:else>
+      <navigator class='page__list_single'  url="/pages/detail/detail?id={{item.id}}">
+      <view class='page__list_title'><text>{{item.title}}</text></view>
+      <view class='page__list_img'><image src='{{item.image}}' style="width: 80px; height: 80px;"></image></view>
+      
+      </navigator>
+      </view>
+      </view>
+
+     </view> 
+     
+    </view> 
+   </view> 
+  </view>
+  <view class="page__bd"> 
+        <view class="weui-footer">
+            <view class="weui-footer__text">Copyright © 2008-2016 jian.com</view>
+        </view>
+  </view>
+  </view> 

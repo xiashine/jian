@@ -1,0 +1,32 @@
+<view class="page"> 
+  <view class="page__hd">
+
+     <view class="weui-loadmore weui-loadmore_line"  wx:if="{{!articles}}">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+     </view>
+     <view  wx:for="{{articles}}" wx:key="id">
+     <view wx:if="{{index % 4 == 0}}">
+      <navigator class='page__list'  url="/pages/detail/detail?id={{item.id}}">
+      <view class='page__list_title'><text>{{item.title}}</text></view>
+      <image src='{{item.image}}' class='page__list_bigimg'></image>
+      </navigator>
+      </view>
+      <view  wx:else>
+      <navigator class='page__list_single'  url="/pages/detail/detail?id={{item.id}}">
+      <view class='page__list_title'><text>{{item.title}}</text></view>
+      <view class='page__list_img'><image src='{{item.image}}' style="width: 80px; height: 80px;"></image></view>
+      
+      </navigator>
+      </view>
+      </view>
+      <view class="weui-loadmore" wx:if="{{loading}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>
+  </view>
+  <view class="page__bd"> 
+        <view class="weui-footer">
+            <view class="weui-footer__text">Copyright © 2008-2016 jian.com</view>
+        </view>
+  </view>
+</view>

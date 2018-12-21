@@ -10,7 +10,7 @@
 
     <view class="weui-article">
       <view class="weui-article__h1">{{ article.title }}</view>
-      <view class="page__desc page_article_from">家住大兴 <text>{{ article.date }}</text></view>
+      <view class="page__desc page_article_from" bindtap="toIndexClick"><text  class='page__link_index'>家住大兴</text><text>{{ article.date }}</text></view>
           <view class="weui-article__section">
                     <view class="weui-article__p">
         <view class="article__content wxParse">

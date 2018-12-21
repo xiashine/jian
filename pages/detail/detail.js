@@ -26,6 +26,15 @@ Page({
     this.newsid = options.id
     this.getArticleDetail(options)
   },
+  toIndexClick:function(){
+    console.log("to index")
+    wx.switchTab({
+      url: '/pages/index/index',
+      fail: function () {
+        console.info("跳转失败")
+      }
+    })
+  },
   getArticleDetail(opt) {
     get('/portal/articles/' + opt.id, {}).then(res => {
 

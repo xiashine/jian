@@ -129,7 +129,7 @@ setListArt:function(index){
       raw_data:rawData,
       signature:signature
     }
-    $vm.utils.post('/wxapp/Public/login', params, { 'XX-Wxapp-AppId': 'wxcd73380cd19302b2' }).then(res => {
+    $vm.utils.post('/wxapp/Public/login', params, { 'XX-Wxapp-AppId': 'wxe7efd45971531e9a' }).then(res => {
       console.log("post:")
       console.log(res)
       if(res.code == 1)

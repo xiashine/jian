@@ -6,6 +6,10 @@
   float:right;
   width: 30px;
 }
+.page__link_index{
+  color: #0c82ff;
+  margin-right: 10px;
+}
 .sharegroup{
   width: 16px;
   height: 16px;
